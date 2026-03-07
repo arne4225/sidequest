@@ -2,6 +2,58 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #2B2B2B;
+    background-color: white;
 }
 
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: large;
+    font-weight: 600;
+    color: white;
+    background-color: #333333;
+}
+
+nav > * {
+    margin-bottom: 10px;
+}
+
+nav > h3 {
+    margin-bottom: 5px;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    height: 100%;
+    background-color: #333333;
+    width: 10%;
+    min-width: 170px;
+}
+
+.sidebaritem {
+    width: 75%;
+    color: white;
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    background-color: crimson;
+    border: maroon solid 3px;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: background-color 0.5s, border 1s, width 0.3s;
+}
+
+.sidebaritem:hover {
+    width: 85%;
+    background-color: maroon;
+    border: crimson 3px solid;
+}
+
+.sidebaritem > a {
+    text-decoration: none;
+    color: white;
+}
