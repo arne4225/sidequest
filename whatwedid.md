@@ -1,4 +1,4 @@
 ### what we did
 ---------
-##day 1 - 07/03/2026
-setting up/comming up with ideas
+## Day 1 - 07/03/2026
+Setting up/coming up with ideas.

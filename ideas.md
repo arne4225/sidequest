@@ -1,18 +1,18 @@
-### alles wat we willen doen/maken
+### Alles wat we willen doen/maken
 
-## sidequest, een daily challenge app/website
+## Sidequest, een daily challenge app/website
 
-#daily challenge:
--Coding challenge
--Fitness challenge
--Productivity challenge
+# Daily challenges:
+- Coding challenge
+- Fitness challenge
+- Productivity challenge
 
-#login:
--different user different challenge
--secure passwords
--email valedation
+# Login:
+- different user different challenge
+- secure passwords
+- email valedation
 
-#reasons to acualy do it:
--streaks
--ranking/leaderboard
--rewards
+# Reasons to actually do it:
+- streaks
+- ranking/leaderboard
+- rewards
