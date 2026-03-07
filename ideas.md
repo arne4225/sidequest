@@ -8,11 +8,16 @@
 - Productivity challenge
 
 # Login:
-- different user different challenge
-- secure passwords
-- email valedation
+- Different user different challenge
+- Secure passwords
+- Email validation
 
 # Reasons to actually do it:
-- streaks
-- ranking/leaderboard
-- rewards
+- Streaks
+- Ranking/leaderboard
+- Rewards
+
+# Colors
+- Crimson 
+- White #FFFFFF
+- Gray #2B2B2B
