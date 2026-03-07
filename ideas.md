@@ -6,6 +6,7 @@
 - Coding challenge
 - Fitness challenge
 - Productivity challenge
+- challenges worden in de db opgeslagen
 
 # Login:
 - Different user different challenge
@@ -21,3 +22,7 @@
 - Crimson 
 - White #FFFFFF
 - Gray #2B2B2B
+
+# admin
+- als je admin bent dan zit dat in de db
+- als je admin bent dan word er en extra knopje geprint waar je dan naar een andere page gaat waar je challenges kan toevoegen
