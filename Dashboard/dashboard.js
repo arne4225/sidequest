@@ -16,7 +16,7 @@ document.getElementById("loginbtn").addEventListener("click", () => {
             hideloginmodal();
             document.getElementById("usernamedisplay").textContent = `Logged in as: ${details[0].username}`;
         } else {
-            window.alert("Incorrect Email or Password");
+            window.alert("Incorrect Username or Password");
         }
     }
 });
