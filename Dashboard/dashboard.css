@@ -5,6 +5,119 @@ body {
     background-color: white;
 }
 
+div#login {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+div#login-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: #2B2B2B solid 2px;
+    border-radius: 20px;
+    max-width: 30%;
+}
+
+div#login-content > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div#login-content > form > * {
+    margin: 2px;
+}
+
+div#login-content > form > input {
+    padding: 10px;
+    border: 2px #333333 solid;
+    border-radius: 5px;
+}
+
+#gotosignup {
+    background: none;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#gotosignup:hover {
+    cursor: pointer;
+    color: darkblue;
+}
+
+#loginbtn, #signupbtn {
+    color: white;
+    font-weight: 700;
+    background-color: crimson;
+    border: maroon solid 3px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 25%;
+    transition: background-color 0.5s, border 1s, width 0.3s;
+    margin-top: 10px;
+}
+
+#loginbtn:hover, #signupbtn:hover {
+    width: 35%;
+    background-color: maroon;
+    border: crimson 3px solid;
+    cursor: pointer;
+}
+
+#signup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#signup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: #2B2B2B solid 2px;
+    border-radius: 20px;
+    max-width: 30%;
+}
+
+#signup-content > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#signup-content > form > * {
+    margin: 2px;
+}
+
+#signup-content > form > input {
+    padding: 10px;
+    border: 2px #333333 solid;
+    border-radius: 5px
+}
+
+
 nav {
     display: flex;
     flex-direction: column;
@@ -55,5 +168,9 @@ nav > h3 {
 
 .sidebaritem > a {
     text-decoration: none;
+    color: white;
+}
+
+#usernamedisplay {
     color: white;
 }
