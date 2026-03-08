@@ -11,7 +11,7 @@ document.getElementById("loginbtn").addEventListener("click", () => {
         window.alert("Account does not exist. Please sign up below");
     } else {
         const details = JSON.parse(localStorage.getItem("logindetails"));
-        if ((details[0].email === document.getElementById("loginemail").value) && (details[0].password === document.getElementById("password").value)) {
+        if ((details[0].username === document.getElementById("loginname").value) && (details[0].password === document.getElementById("password").value)) {
             localStorage.setItem("isloggedin", true);
             hideloginmodal();
             document.getElementById("usernamedisplay").textContent = `Logged in as: ${details[0].username}`;
