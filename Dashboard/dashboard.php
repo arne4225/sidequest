@@ -3,6 +3,14 @@
 session_start();
 require 'DB.php';
 
+$isLoggedIn = isset($_SESSION['user_id']);
+$user = null;
+
+if ($isLoggedIn) {
+    $stmtUser = $pdo->prepare("SELECT username FROM users WHERE id = ?");
+    $stmtUser->execute([$_SESSION['user_id']]);
+    $user = $stmtUser->fetch();
+}
 
 ?>
 
@@ -30,7 +38,7 @@ require 'DB.php';
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password">
 
-                <button id="loginbtn" type="button">Login</button>
+                <button id="loginbtn" type="submit">Login</button>
             </form>
             <button id="gotosignup"> Sign up Instead</button>
         </div>
@@ -52,7 +60,7 @@ require 'DB.php';
                 <label for="password2">Confirm Password:</label>
                 <input type="password" id="password2" name="password2">
 
-                <button id="signupbtn" type="button">Sign up</button>
+                <button id="signupbtn" type="submit">Sign up</button>
             </form>
         </div>
     </div>

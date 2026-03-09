@@ -9,6 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (empty($username) || empty($password)) {
         echo "Fill in all fields";
+        
+header("Location: ../Dashboard/dashboard.php");
         exit;
     }
 
@@ -28,8 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["admin"] = $user["admin"];
 
             echo "success";
+            header("Location: ../Dashboard/dashboard.php");
         } else {
             echo "Invalid username or password";
+            
+header("Location: ../Dashboard/dashboard.php");
         }
     } catch (PDOException $e) {
         echo "Database error";

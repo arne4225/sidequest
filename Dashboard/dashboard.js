@@ -38,3 +38,19 @@ function showsignup() {
     hideloginmodal();
     document.getElementById("signup").style.display = "block";
 }
+
+// van arne
+fetch("signup.php", {
+    method: "POST",
+    body: new FormData(document.getElementById("signupForm"))
+})
+.then(res => res.text())
+.then(data => {
+
+    if (data === "success") {
+        alert("Account created successfully!");
+    } else {
+        alert(data);
+    }
+
+});

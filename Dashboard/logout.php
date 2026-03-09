@@ -6,5 +6,5 @@ $_SESSION = [];
 
 session_destroy();
 
-header("Location: ../Dashboard/dashboard.html");
+header("Location: ../Dashboard/dashboard.php");
 exit;

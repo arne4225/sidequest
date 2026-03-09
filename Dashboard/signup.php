@@ -13,11 +13,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (empty($username) || empty($email) || empty($password1) || empty($password2)) {
         echo "Fill in all fields";
+
+        header("Location: ../Dashboard/dashboard.php");
         exit;
     }
 
     if ($password1 !== $password2) {
         echo "Passwords do not match";
+
+        header("Location: ../Dashboard/dashboard.php");
         exit;
     }
 
@@ -31,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($check->fetch()) {
             echo "Username or email already exists";
+            header("Location: ../Dashboard/dashboard.php");
             exit;
         }
 
@@ -48,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         ]);
 
         echo "success";
-
+        header("Location: ../Dashboard/dashboard.php");
     } catch (PDOException $e) {
         echo "Database error";
     }
