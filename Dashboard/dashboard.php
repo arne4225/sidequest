@@ -30,7 +30,7 @@ require 'DB.php';
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password">
 
-                <button type="submit">Login</button>
+                <button id="loginbtn" type="button">Login</button>
             </form>
             <button id="gotosignup"> Sign up Instead</button>
         </div>
@@ -52,7 +52,7 @@ require 'DB.php';
                 <label for="password2">Confirm Password:</label>
                 <input type="password" id="password2" name="password2">
 
-                <button type="submit">Sign up</button>
+               <button id="signupbtn" type="button">Sign up</button>
             </form>
         </div>
     </div>
@@ -66,7 +66,7 @@ require 'DB.php';
         <button class="sidebaritem"><a href="../Dashboard/dashboard.php">Challenge</a></button>
         <button class="sidebaritem"><a href="../Shop/shop.html">Rewards Shop</a></button>
         <button class="sidebaritem"><a href="../Leaderboard/leaderboard.html">Leaderboard</a></button>
-        <button class="sidebaritem"><a href="logout.php">Logout</a></button>
+        <button class="sidebaritem" id="logoutbtn"><a href="logout.php">Logout</a></button>
         <button class="sidebaritem"><a href="../Admin Panel/panel.html">Admin Panel</a></button>
         <p id="usernamedisplay"></p>
     </div>
