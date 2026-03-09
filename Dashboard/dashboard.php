@@ -52,7 +52,7 @@ require 'DB.php';
                 <label for="password2">Confirm Password:</label>
                 <input type="password" id="password2" name="password2">
 
-               <button id="signupbtn" type="button">Sign up</button>
+                <button id="signupbtn" type="button">Sign up</button>
             </form>
         </div>
     </div>
