@@ -1,10 +1,9 @@
 <?php
 
-
-$host = 'db.suwhiehlvdqercqmgemk.supabase.co';
+$host = 'aws-1-eu-west-1.pooler.supabase.com';
 $port = '5432';
 $dbname = 'postgres';
-$user = 'postgres';
+$user = 'postgres.suwhiehlvdqercqmgemk';
 $password = 'sidequestDB123';
 
 if (!in_array('pgsql', PDO::getAvailableDrivers())) {

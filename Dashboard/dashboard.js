@@ -1,56 +1,31 @@
-// Modal Pops up for new and/or logged out users.
-checkifloggedin();
+const loginOverlay = document.getElementById("login");
+const signupOverlay = document.getElementById("signup");
+const gotoSignupBtn = document.getElementById("gotosignup");
+const logoutBtn = document.getElementById("logoutbtn");
 
-// Adds functions to certain buttons
-document.getElementById("logoutbtn").addEventListener("click", logout);
-document.getElementById("gotosignup").addEventListener("click", showsignup);
+// Check of user ingelogd is via PHP flag
+const isLoggedIn = document.body.dataset.loggedin === "true";
 
-// Checks if user is logged in based on localstorage
+// Show login overlay als niet ingelogd
 function checkifloggedin() {
-    if (!localStorage.getItem("isloggedin")) {
-        showloginmodal();
+    if (!isLoggedIn) {
+        loginOverlay.style.display = "flex";
     } else {
-        const details = JSON.parse(localStorage.getItem("logindetails"));
-        document.getElementById("usernamedisplay").textContent = `Logged in as: ${details[0].username}`;
+        loginOverlay.style.display = "none";
     }
 }
 
-// Shows the login modal.
-function showloginmodal() {
-    document.getElementById("signup").style.display = "none";
-    document.getElementById("login").style.display = "block";
-}
-
-// Hides the login modal.
-function hideloginmodal() {
-    document.getElementById("login").style.display = "none"
-}
-
-// Function removes the "isloggedin" data from localstorage prompting the login modal again.
-function logout() {
-    localStorage.removeItem("isloggedin");
-    document.getElementById("usernamedisplay").textContent = "";
-    checkifloggedin();
-}
-
-//Switches modal to Signup mode
-function showsignup() {
-    hideloginmodal();
-    document.getElementById("signup").style.display = "block";
-}
-
-// van arne
-fetch("signup.php", {
-    method: "POST",
-    body: new FormData(document.getElementById("signupForm"))
-})
-.then(res => res.text())
-.then(data => {
-
-    if (data === "success") {
-        alert("Account created successfully!");
-    } else {
-        alert(data);
-    }
-
+// Switch naar signup overlay
+gotoSignupBtn.addEventListener("click", () => {
+    loginOverlay.style.display = "none";
+    signupOverlay.style.display = "flex";
 });
+
+// Logout button (voorkomt rare gedrag door <a>)
+logoutBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.location.href = "logout.php";
+});
+
+// Run check
+checkifloggedin();

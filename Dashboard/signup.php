@@ -1,60 +1,54 @@
 <?php
-
 session_start();
-
-require_once "DB.php";
+require 'DB.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $username = $_POST["username"] ?? '';
-    $email = $_POST["email"] ?? '';
+    $username = trim($_POST["username"] ?? '');
+    $email = trim($_POST["email"] ?? '');
     $password1 = $_POST["password1"] ?? '';
     $password2 = $_POST["password2"] ?? '';
 
+    // Validation
     if (empty($username) || empty($email) || empty($password1) || empty($password2)) {
-        echo "Fill in all fields";
+        header("Location: dashboard.php?error=emptyfields");
+        exit;
+    }
 
-        header("Location: ../Dashboard/dashboard.php");
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        header("Location: dashboard.php?error=invalidemail");
         exit;
     }
 
     if ($password1 !== $password2) {
-        echo "Passwords do not match";
-
-        header("Location: ../Dashboard/dashboard.php");
+        header("Location: dashboard.php?error=passwordmismatch");
         exit;
     }
 
-    try {
-
-        $check = $pdo->prepare("SELECT id FROM users WHERE username = :username OR email = :email");
-        $check->execute([
-            ":username" => $username,
-            ":email" => $email
-        ]);
-
-        if ($check->fetch()) {
-            echo "Username or email already exists";
-            header("Location: ../Dashboard/dashboard.php");
-            exit;
-        }
-
-        $password_hash = password_hash($password1, PASSWORD_DEFAULT);
-
-        $stmt = $pdo->prepare("
-            INSERT INTO users (username, email, password_hash)
-            VALUES (:username, :email, :password_hash)
-        ");
-
-        $stmt->execute([
-            ":username" => $username,
-            ":email" => $email,
-            ":password_hash" => $password_hash
-        ]);
-
-        echo "success";
-        header("Location: ../Dashboard/dashboard.php");
-    } catch (PDOException $e) {
-        echo "Database error";
+    if (strlen($password1) < 6) {
+        header("Location: dashboard.php?error=passwordshort");
+        exit;
     }
+
+    // Check existing user
+    $stmt = $pdo->prepare("SELECT id FROM users WHERE username = ? OR email = ?");
+    $stmt->execute([$username, $email]);
+
+    if ($stmt->fetch()) {
+        header("Location: dashboard.php?error=userexists");
+        exit;
+    }
+
+    // Hash password
+    $hashedPassword = password_hash($password1, PASSWORD_DEFAULT);
+
+    // Insert (LET OP: password_hash kolom!)
+    $stmt = $pdo->prepare("INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)");
+    $stmt->execute([$username, $email, $hashedPassword]);
+
+    // Auto login
+    $_SESSION['user_id'] = $pdo->lastInsertId();
+
+    header("Location: dashboard.php?success=accountcreated");
+    exit;
 }
