@@ -2,7 +2,7 @@
 
 require_once '../Dashboard/auth_check.php';
 require_once '../Dashboard/DB.php';
-require_once '../Admin Panel/admin_check.php';
+require_once '../Admin_Panel/admin_check.php';
 
 $user_id = $_SESSION['user_id'];
 $stmt = $pdo->prepare("SELECT username FROM users WHERE id = ?");
