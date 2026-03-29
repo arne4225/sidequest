@@ -25,5 +25,6 @@ $username = $user ? $user['username'] : 'Unknown User';
     <h1>admin panel</h1>
     <h2>epic admin panel</h2>
     <p>Welcome, <?php echo htmlspecialchars($username); ?> You have admin access.</p>
+    <a href="../Dashboard/dashboard.php">go back</a>
     
 </body>

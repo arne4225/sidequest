@@ -7,7 +7,7 @@ $isLoggedIn = isset($_SESSION['user_id']);
 $user = null;
 
 if ($isLoggedIn) {
-    $stmtUser = $pdo->prepare("SELECT username FROM users WHERE id = ?");
+    $stmtUser = $pdo->prepare("SELECT username, admin FROM users WHERE id = ?");
     $stmtUser->execute([$_SESSION['user_id']]);
     $user = $stmtUser->fetch();
 }
@@ -76,7 +76,9 @@ if ($isLoggedIn) {
         <button class="sidebaritem"><a href="../Shop/shop.html">Rewards Shop</a></button>
         <button class="sidebaritem"><a href="../Leaderboard/leaderboard.html">Leaderboard</a></button>
         <button class="sidebaritem" id="logoutbtn"><a href="logout.php">Logout</a></button>
-        <button class="sidebaritem"><a href="../Admin_Panel/panel.php">Admin Panel</a></button>
+        <?php if ($isLoggedIn && $user && isset($user['admin']) && $user['admin']): ?>
+            <button class="sidebaritem"><a href="../Admin_Panel/panel.php">Admin Panel</a></button>
+        <?php endif; ?>
         <p id="usernamedisplay">
             <?php echo $user ? htmlspecialchars($user['username']) : 'Not logged in'; ?>
         </p>

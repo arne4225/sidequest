@@ -10,6 +10,6 @@ $user = $stmt->fetch();
 
 if (!$user || !$user['admin']) {
     session_destroy();
-    header("Location: dashboard.php");
+    header("Location: ../dashboard/dashboard.php");
     exit;
 }
