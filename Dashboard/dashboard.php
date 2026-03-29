@@ -76,7 +76,7 @@ if ($isLoggedIn) {
         <button class="sidebaritem"><a href="../Shop/shop.html">Rewards Shop</a></button>
         <button class="sidebaritem"><a href="../Leaderboard/leaderboard.html">Leaderboard</a></button>
         <button class="sidebaritem" id="logoutbtn"><a href="logout.php">Logout</a></button>
-        <button class="sidebaritem"><a href="../Admin Panel/panel.html">Admin Panel</a></button>
+        <button class="sidebaritem"><a href="../Admin_Panel/panel.php">Admin Panel</a></button>
         <p id="usernamedisplay">
             <?php echo $user ? htmlspecialchars($user['username']) : 'Not logged in'; ?>
         </p>
