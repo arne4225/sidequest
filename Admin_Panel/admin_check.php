@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require_once '../Dashboard/DB.php';
 
 $user_id = $_SESSION['user_id'];
